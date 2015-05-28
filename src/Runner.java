@@ -15,16 +15,6 @@ public class Runner {
         Set<String> hashes = GeoHashesInPolygon.geohashesInPolygon(wyomingCo, precision);
         System.out.println(hashes);
         System.out.println(hashes.size());
-//        double[][] triangle = {
-//                {-109.248046875,
-//                        44.99588261816546},
-//                {-109.1162109375,
-//                        38.238180119798635},
-//                {-102.83203125,
-//                        38.41055825094609}};
-//
-//        HashSet<String> hashList = GeoHashesInPolygon.geohashesInPolygon(triangle, 3);
-//        System.out.println(hashList);
     }
 
 

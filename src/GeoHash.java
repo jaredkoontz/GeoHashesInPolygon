@@ -32,9 +32,8 @@ import java.util.HashMap;
  * algorithm.
  * <p/>
  * See http://en.wikipedia.org/wiki/Geohash for implementation details.
- *
+ * <p/>
  * created by malensek and koontz
- *
  */
 public class GeoHash {
 
@@ -272,5 +271,40 @@ public class GeoHash {
         return bits;
     }
 
+
+    public static double[] decode_bbox(String hash_string) {
+        hash_string = hash_string.toLowerCase();
+        boolean islon = true;
+        double maxlat = 90, minlat = -90;
+        double maxlon = 180;
+        double minlon = -180;
+
+        int hash_value;
+        for (int i = 0, l = hash_string.length(); i < l; i++) {
+            char code = hash_string.charAt(i);
+            hash_value = charLookupTable.get(code);
+
+            for (int bits = 4; bits >= 0; bits--) {
+                int bit = (hash_value >> bits) & 1;
+                if (islon) {
+                    double mid = (maxlon + minlon) / 2;
+                    if (bit == 1) {
+                        minlon = mid;
+                    } else {
+                        maxlon = mid;
+                    }
+                } else {
+                    double mid = (maxlat + minlat) / 2;
+                    if (bit == 1) {
+                        minlat = mid;
+                    } else {
+                        maxlat = mid;
+                    }
+                }
+                islon = !islon;
+            }
+        }
+        return new double[]{minlat, minlon, maxlat, maxlon};
+    }
 
 }

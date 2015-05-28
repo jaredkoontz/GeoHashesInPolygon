@@ -41,27 +41,4 @@ public class EnclosingGeoHash {
         return strings[0];
     }
 
-    /**
-     * @param granularityInMeters granularity
-     * @param latitude            latitude
-     * @param longitude           longitude
-     * @return the largest hash length where the hash bbox has a width less than granularityInMeters.
-     */
-    public static int suitableHashLength(double granularityInMeters, double latitude, double longitude) {
-        if (granularityInMeters < 5) {
-            return 10;
-        }
-        String hash = GeoHash.encode(latitude, longitude);
-        double width = 0;
-        int length = hash.length();
-        // the height is the same at for any latitude given a length, but the width converges towards the poles
-        while (width < granularityInMeters && hash.length() >= 2) {
-            length = hash.length();
-            double[] bbox = GeoHashUtils.decode_bbox(hash);
-            width = GeoGeometry.distance(bbox[0], bbox[2], bbox[0], bbox[3]);
-            hash = hash.substring(0, hash.length() - 1);
-        }
-        return Math.min(length + 1, GeoHashUtils.DEFAULT_PRECISION);
-    }
-
 }
