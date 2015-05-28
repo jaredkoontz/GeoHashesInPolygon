@@ -1,4 +1,4 @@
-/*
+package polygon;/*
 Copyright (c) 2013, Colorado State University
 All rights reserved.
 
@@ -113,7 +113,7 @@ public class SpatialRange {
      * coordinates of the range.  Note that this method does not account for the
      * curvature of the earth (aka the Earth is flat).
      *
-     * @return a Pair of Coordinates, with the upper-left and lower-right
+     * @return a polygon.Pair of polygon.Coordinates, with the upper-left and lower-right
      * points of this spatial range.
      */
     public Pair<Coordinates, Coordinates> get2DCoordinates() {

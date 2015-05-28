@@ -1,3 +1,5 @@
+package polygon;
+
 public class EnclosingGeoHash {
 
     /**

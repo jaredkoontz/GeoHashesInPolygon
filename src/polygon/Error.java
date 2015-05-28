@@ -1,3 +1,5 @@
+package polygon;
+
 public class Error {
 
     private final double lat;

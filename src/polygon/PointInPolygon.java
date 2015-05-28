@@ -1,3 +1,7 @@
+package polygon;
+
+import polygon.Coordinates;
+
 /**
  * Created by jared on 5/27/15.
  */

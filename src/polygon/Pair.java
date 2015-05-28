@@ -1,3 +1,5 @@
+package polygon;
+
 /**
  * Simple tuple class for holding arbitrary value pairs.
  *

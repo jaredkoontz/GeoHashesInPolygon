@@ -1,3 +1,5 @@
+package polygon;
+
 /**
  * Encapsulates a point in space with latitude, longitude coordinates.
  */
@@ -6,7 +8,7 @@ public class Coordinates {
     private float lon;
 
     /**
-     * Create Coordinates at the specified latitude and longitude.
+     * Create polygon.Coordinates at the specified latitude and longitude.
      *
      * @param lat Latitude for this coordinate pair, in degrees.
      * @param lon Longitude for this coordinate pair, in degrees.

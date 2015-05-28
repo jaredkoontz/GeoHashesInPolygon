@@ -1,5 +1,7 @@
+package polygon;
+
 public class CoordinateWithError {
-    protected final double latitude;
+    private final double latitude;
     private final double longitude;
     private final Error error;
 
