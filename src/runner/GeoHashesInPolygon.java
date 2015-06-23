@@ -36,6 +36,9 @@ public class GeoHashesInPolygon {
      * @param polygon
      * @param precision
      * @return
+     * todo change all of these integers into boolean logic
+     * 
+     * 
      */
     private static HashSet<String> hashesInPoly(Coordinates[] polygon, int precision) {
         double[] bounding = GeoHashUtils.polyToBB(polygon);
