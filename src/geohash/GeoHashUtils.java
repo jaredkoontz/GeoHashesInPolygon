@@ -7,8 +7,6 @@ import polygon.PointInPolygon;
 /**
  todo
  */
-
-
 public class GeoHashUtils {
 
     /**

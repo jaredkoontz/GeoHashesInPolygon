@@ -2,7 +2,10 @@ package geohash;
 
 import coords.Coordinates;
 
-public class EnclosingGeoHash {
+/**
+ * todo
+ */
+public class LongestEnclosingGeoHash {
 
     /**
      * todo
