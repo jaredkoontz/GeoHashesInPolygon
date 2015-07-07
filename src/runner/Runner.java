@@ -7,9 +7,14 @@ import polygon.GeoHashesInPolygon;
 
 import java.util.Set;
 
-
+/**
+ * todo
+ */
 public class Runner {
 
+    /**
+     * todo
+     */
     public static void main(String[] a) {
         Coordinates[] wyomingCo = {
                 new Coordinates(44.99588261816546f, -109.248046875f),

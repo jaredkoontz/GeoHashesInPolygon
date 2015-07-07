@@ -11,19 +11,14 @@ import java.util.HashSet;
 public class GeoHashesInPolygon {
 
     /**
-     *
-     * @param polygon
-     * @param precision
-     * @return
+     * todo
      */
     public static HashSet<String> geohashesInPolygon(Coordinates[] polygon, int precision) {
         return hashesInPoly(polygon, precision);
     }
 
     /**
-     *
-     * @param polygon
-     * @return
+     * todo
      */
     public static HashSet<String> hashesInPoly(Coordinates[] polygon){
         int longestEnclosingHashLength = EnclosingGeoHash.longestEnclosingHash(polygon).length();
@@ -32,10 +27,7 @@ public class GeoHashesInPolygon {
     }
 
     /**
-     *
-     * @param polygon
-     * @param precision
-     * @return
+     * todo
      */
     private static HashSet<String> hashesInPoly(Coordinates[] polygon, int precision) {
         double[] bounding = GeoHashUtils.polyToBB(polygon);

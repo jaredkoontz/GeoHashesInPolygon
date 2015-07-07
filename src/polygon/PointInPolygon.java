@@ -3,7 +3,7 @@ package polygon;
 import coords.Coordinates;
 
 /**
- * Created by jared on 5/27/15.
+ * todo
  */
 public class PointInPolygon {
     /**

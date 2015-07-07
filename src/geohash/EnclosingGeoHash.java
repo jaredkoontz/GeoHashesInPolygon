@@ -6,9 +6,6 @@ public class EnclosingGeoHash {
 
     /**
      * todo
-     *
-     * @param polygonPoints
-     * @return
      */
     public static String longestEnclosingHash(Coordinates... polygonPoints) {
         String[] hashes = new String[polygonPoints.length];
@@ -24,9 +21,6 @@ public class EnclosingGeoHash {
 
     /**
      * todo
-     *
-     * @param strings
-     * @return
      */
     private static String longestCommonPrefix(String[] strings) {
         if (strings.length == 0) {

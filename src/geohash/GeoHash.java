@@ -1,41 +1,16 @@
-package geohash;/*
-Copyright (c) 2013, Colorado State University
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-This software is provided by the copyright holders and contributors "as is" and
-any express or implied warranties, including, but not limited to, the implied
-warranties of merchantability and fitness for a particular purpose are
-disclaimed. In no event shall the copyright holder or contributors be liable for
-any direct, indirect, incidental, special, exemplary, or consequential damages
-(including, but not limited to, procurement of substitute goods or services;
-loss of use, data, or profits; or business interruption) however caused and on
-any theory of liability, whether in contract, strict liability, or tort
-(including negligence or otherwise) arising in any way out of the use of this
-software, even if advised of the possibility of such damage.
-*/
-
+package geohash;
 
 import coords.Coordinates;
-import coords.SpatialRange;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * This class provides an implementation of the polygon.GeoHash (http://www.geohash.org)
+ * This class provides an implementation of the GeoHash (http://www.geohash.org)
  * algorithm.
- * <p/>
+
  * See http://en.wikipedia.org/wiki/Geohash for implementation details.
- * <p/>
+
  * created by malensek and koontz
  */
 public class GeoHash {
@@ -45,7 +20,7 @@ public class GeoHash {
     public final static int LONGITUDE_RANGE = 180;
     /**
      * This character array maps integer values (array indices) to their
-     * polygon.GeoHash base32 alphabet equivalents.
+     * GeoHash base32 alphabet equivalents.
      */
     public final static char[] charMap = {
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'b', 'c',
@@ -53,7 +28,7 @@ public class GeoHash {
             's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
     };
     /**
-     * Allows lookups from a polygon.GeoHash character to its integer index value.
+     * Allows lookups from a GeoHash character to its integer index value.
      */
     public final static HashMap<Character, Integer> charLookupTable =
             new HashMap<>();
@@ -70,50 +45,35 @@ public class GeoHash {
     public static int DEFAULT_PRECISION = 12;
 
     /**
-     * Encode a set of {@link coords.Coordinates} into a polygon.GeoHash string by calling the encode method with
+     * Encode a set of {@link coords.Coordinates} into a GeoHash string by calling the encode method with
      * the default precision
      *
-     * @param coordinates polygon.Coordinates to get polygon.GeoHash for.
+     * @param coordinates polygon.Coordinates to get GeoHash for.
      */
     public static String encode(Coordinates coordinates) {
         return encode(coordinates, DEFAULT_PRECISION);
     }
 
     /**
-     * Encode a set of {@link Coordinates} into a polygon.GeoHash string.
+     * Encode a set of {@link Coordinates} into a GeoHash string.
      *
-     * @param coords    polygon.Coordinates to get polygon.GeoHash for.
-     * @param precision Desired number of characters in the returned polygon.GeoHash String.  More
+     * @param coords    polygon.Coordinates to get GeoHash for.
+     * @param precision Desired number of characters in the returned GeoHash String.  More
      *                  characters means more precision.
-     * @return polygon.GeoHash string.
+     * @return GeoHash string.
      */
     public static String encode(Coordinates coords, int precision) {
         return encode(coords.getLatitude(), coords.getLongitude(), precision);
     }
 
     /**
-     * Encode {@link coords.SpatialRange} into a polygon.GeoHash string.
-     *
-     * @param range     polygon.SpatialRange to get polygon.GeoHash for.
-     * @param precision Number of characters in the returned polygon.GeoHash String.
-     *                  More characters is more precise.
-     * @return polygon.GeoHash string.
-     */
-    public static String encode(SpatialRange range, int precision) {
-        Coordinates rangeCoordinates = range.getCenterPoint();
-        return encode(rangeCoordinates.getLatitude(),
-                rangeCoordinates.getLongitude(),
-                precision);
-    }
-
-    /**
-     * Encode latitude and longitude into a polygon.GeoHash string.
+     * Encode latitude and longitude into a GeoHash string.
      *
      * @param latitude  Latitude coordinate, in degrees.
      * @param longitude Longitude coordinate, in degrees.
-     * @param precision Number of characters in the returned polygon.GeoHash String.
+     * @param precision Number of characters in the returned GeoHash String.
      *                  More characters is more precise.
-     * @return resulting polygon.GeoHash String.
+     * @return resulting GeoHash String.
      */
     public static String encode(float latitude, float longitude,
                                 int precision) {
@@ -171,15 +131,15 @@ public class GeoHash {
     }
 
     /**
-     * Convert a polygon.GeoHash String to a long integer.
+     * Convert a GeoHash String to a long integer.
      *
-     * @param hash polygon.GeoHash String to convert.
-     * @return The polygon.GeoHash as a long integer.
+     * @param hash GeoHash String to convert.
+     * @return The GeoHash as a long integer.
      */
     public static long hashToLong(String hash) {
         long longForm = 0;
 
-        /* Long can fit 12 polygon.GeoHash characters worth of precision. */
+        /* Long can fit 12 GeoHash characters worth of precision. */
         if (hash.length() > 12) {
             hash = hash.substring(0, 12);
         }
@@ -192,27 +152,11 @@ public class GeoHash {
         return longForm;
     }
 
-    /**
-     * Decode a polygon.GeoHash to an approximate bounding box that contains the
-     * original GeoHashed point.
-     *
-     * @param geoHash polygon.GeoHash string
-     * @return Spatial Range (bounding box) of the polygon.GeoHash.
-     */
-    public static SpatialRange decodeHash(String geoHash) {
-        ArrayList<Boolean> bits = getBits(geoHash);
-
-        float[] longitude = decodeBits(bits, false);
-        float[] latitude = decodeBits(bits, true);
-
-        return new SpatialRange(latitude[0], latitude[1],
-                longitude[0], longitude[1]);
-    }
 
     /**
-     * Decode polygon.GeoHash bits from a binary polygon.GeoHash.
+     * Decode GeoHash bits from a binary GeoHash.
      *
-     * @param bits     ArrayList of Booleans containing the polygon.GeoHash bits
+     * @param bits     ArrayList of Booleans containing the GeoHash bits
      * @param latitude If set to <code>true</code> the latitude bits are decoded.  If set to
      *                 <code>false</code> the longitude bits are decoded.
      * @return low, high range that the GeoHashed location falls between.
@@ -250,10 +194,10 @@ public class GeoHash {
     }
 
     /**
-     * Converts a polygon.GeoHash string to its binary representation.
+     * Converts a GeoHash string to its binary representation.
      *
-     * @param hash polygon.GeoHash string to convert to binary
-     * @return The polygon.GeoHash in binary form, as an ArrayList of Booleans.
+     * @param hash GeoHash string to convert to binary
+     * @return The GeoHash in binary form, as an ArrayList of Booleans.
      */
     private static ArrayList<Boolean> getBits(String hash) {
         hash = hash.toLowerCase();

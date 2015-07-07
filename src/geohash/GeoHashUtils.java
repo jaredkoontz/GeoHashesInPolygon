@@ -13,8 +13,6 @@ public class GeoHashUtils {
 
     /**
      * todo
-     * @param hash_string
-     * @return
      */
     public static Coordinates decodeWithError(String hash_string) {
         double[] bbox = GeoHash.decode_bbox(hash_string);
@@ -37,8 +35,6 @@ public class GeoHashUtils {
 
     /**
      * todo
-     * @param polygon
-     * @return
      */
     public static double[] polyToBB(Coordinates[] polygon) {
         double minLat = Double.MAX_VALUE, minLon = minLat, maxLat = -minLat, maxLon = -minLat;
@@ -54,10 +50,7 @@ public class GeoHashUtils {
 
 
     /**
-     *
-     * @param hash
-     * @param direction
-     * @return
+     * todo
      */
     public static String neighbor(String hash, int[] direction) {
         Coordinates lonlat = GeoHashUtils.decodeWithError(hash);
@@ -71,10 +64,7 @@ public class GeoHashUtils {
     }
 
     /**
-     *
-     * @param point
-     * @param polygon
-     * @return
+     * todo
      */
     public static int inside(Coordinates point, Coordinates[] polygon) {
         int inside = 0;
