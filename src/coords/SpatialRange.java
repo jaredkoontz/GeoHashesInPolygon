@@ -1,4 +1,4 @@
-package polygon;/*
+package coords;/*
 Copyright (c) 2013, Colorado State University
 All rights reserved.
 

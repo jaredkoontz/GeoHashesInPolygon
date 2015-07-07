@@ -1,4 +1,6 @@
-package polygon;
+package geohash;
+
+import coords.Coordinates;
 
 public class EnclosingGeoHash {
 

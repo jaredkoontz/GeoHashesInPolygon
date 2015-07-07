@@ -1,4 +1,4 @@
-package polygon;/*
+package geohash;/*
 Copyright (c) 2013, Colorado State University
 All rights reserved.
 
@@ -23,6 +23,9 @@ any theory of liability, whether in contract, strict liability, or tort
 software, even if advised of the possibility of such damage.
 */
 
+
+import coords.Coordinates;
+import coords.SpatialRange;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,7 +70,7 @@ public class GeoHash {
     public static int DEFAULT_PRECISION = 12;
 
     /**
-     * Encode a set of {@link Coordinates} into a polygon.GeoHash string by calling the encode method with
+     * Encode a set of {@link coords.Coordinates} into a polygon.GeoHash string by calling the encode method with
      * the default precision
      *
      * @param coordinates polygon.Coordinates to get polygon.GeoHash for.
@@ -89,7 +92,7 @@ public class GeoHash {
     }
 
     /**
-     * Encode {@link SpatialRange} into a polygon.GeoHash string.
+     * Encode {@link coords.SpatialRange} into a polygon.GeoHash string.
      *
      * @param range     polygon.SpatialRange to get polygon.GeoHash for.
      * @param precision Number of characters in the returned polygon.GeoHash String.

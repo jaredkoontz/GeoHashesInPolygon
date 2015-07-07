@@ -1,11 +1,12 @@
-package polygon;
+package coords;
 
 /**
  * Encapsulates a point in space with latitude, longitude coordinates.
  */
 public class Coordinates {
-    private float lat;
-    private float lon;
+    private double lat;
+    private double lon;
+    private final Error error;
 
     /**
      * Create polygon.Coordinates at the specified latitude and longitude.
@@ -16,6 +17,14 @@ public class Coordinates {
     public Coordinates(float lat, float lon) {
         this.lat = lat;
         this.lon = lon;
+        this.error = null;
+    }
+
+
+    public Coordinates(double latitude, double longitude, double laterr, double lonerr) {
+        this.lat = latitude;
+        this.lon = longitude;
+        this.error = new Error(laterr, lonerr);
     }
 
     /**
@@ -23,7 +32,7 @@ public class Coordinates {
      *
      * @return latitude, in degrees.
      */
-    public float getLatitude() {
+    public double getLatitude() {
         return lat;
     }
 
@@ -32,9 +41,22 @@ public class Coordinates {
      *
      * @return longitude, in degrees
      */
-    public float getLongitude() {
+    public double getLongitude() {
         return lon;
     }
 
+    /**
+     * todo
+     */
+    public Error getError() {
+        return error;
+    }
+
+    /**
+     * todo
+     */
+    public String toString() {
+        return lat + " | " + lon + " | " + error;
+    }
 
 }

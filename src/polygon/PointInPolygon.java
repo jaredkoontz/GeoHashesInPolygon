@@ -1,6 +1,6 @@
 package polygon;
 
-import polygon.Coordinates;
+import coords.Coordinates;
 
 /**
  * Created by jared on 5/27/15.

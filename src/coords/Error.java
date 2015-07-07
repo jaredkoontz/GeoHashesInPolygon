@@ -1,4 +1,4 @@
-package polygon;
+package coords;
 
 public class Error {
 

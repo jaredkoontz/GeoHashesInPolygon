@@ -1,4 +1,4 @@
-package polygon;
+package coords;
 
 /**
  * Simple tuple class for holding arbitrary value pairs.

@@ -1,8 +1,9 @@
 package runner;
 
 
-import polygon.Coordinates;
-import polygon.EnclosingGeoHash;
+import coords.Coordinates;
+import geohash.EnclosingGeoHash;
+import polygon.GeoHashesInPolygon;
 
 import java.util.Set;
 

@@ -1,4 +1,8 @@
-package polygon;
+package geohash;
+
+
+import coords.Coordinates;
+import polygon.PointInPolygon;
 
 /**
  todo
@@ -12,13 +16,13 @@ public class GeoHashUtils {
      * @param hash_string
      * @return
      */
-    public static CoordinateWithError decodeWithError(String hash_string) {
+    public static Coordinates decodeWithError(String hash_string) {
         double[] bbox = GeoHash.decode_bbox(hash_string);
         double lat = (bbox[0] + bbox[2]) / 2;
         double lon = (bbox[1] + bbox[3]) / 2;
         double laterr = bbox[2] - lat;
         double lonerr = bbox[3] - lon;
-        return new CoordinateWithError(lat, lon, laterr, lonerr);
+        return new Coordinates(lat, lon, laterr, lonerr);
     }
 
 
@@ -56,7 +60,7 @@ public class GeoHashUtils {
      * @return
      */
     public static String neighbor(String hash, int[] direction) {
-        CoordinateWithError lonlat = GeoHashUtils.decodeWithError(hash);
+        Coordinates lonlat = GeoHashUtils.decodeWithError(hash);
         double neighbor_lat = lonlat.getLatitude()
                 + direction[0] * lonlat.getError().getLat() * 2;
 
@@ -72,7 +76,7 @@ public class GeoHashUtils {
      * @param polygon
      * @return
      */
-    public static int inside(CoordinateWithError point, Coordinates[] polygon) {
+    public static int inside(Coordinates point, Coordinates[] polygon) {
         int inside = 0;
 
         inside += PointInPolygon.pip(new double[]{point.getLongitude(), point.getLatitude()}, polygon) ? 1 : 0;
