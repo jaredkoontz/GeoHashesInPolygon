@@ -1,7 +1,7 @@
 ###GeohashesInPolygon
 
 
-A java implementation to find the geohashes inside of the polygon. Used in my [GeoLens Project](http://www.cs.colostate.edu/geolens) project to decide the GeoHash tiles to display.
+A java implementation to find the geohashes inside of the polygon. Used in my [GeoLens Project](http://www.cs.colostate.edu/geolens) project to decide the GeoHash tiles to display. Many classes have been reduced to improve readability and to inspire usability. 
 
 This project is inspired from:
 https://github.com/derrickpelletier/geohash-poly
