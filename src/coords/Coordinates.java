@@ -2,11 +2,14 @@ package coords;
 
 /**
  * Encapsulates a point in space with latitude, longitude coordinates.
+ * Can have an error value.
+ *
+ * @author koontz
  */
 public class Coordinates {
+    private final Error error;
     private double lat;
     private double lon;
-    private final Error error;
 
     /**
      * Create polygon.Coordinates at the specified latitude and longitude.
@@ -20,7 +23,9 @@ public class Coordinates {
         this.error = null;
     }
 
-
+    /**
+     *
+     */
     public Coordinates(double latitude, double longitude, double laterr, double lonerr) {
         this.lat = latitude;
         this.lon = longitude;
@@ -46,14 +51,14 @@ public class Coordinates {
     }
 
     /**
-     * todo
+     * returns
      */
     public Error getError() {
         return error;
     }
 
     /**
-     * todo
+     * simple toString
      */
     public String toString() {
         return lat + " | " + lon + " | " + error;

@@ -5,7 +5,7 @@ import coords.Coordinates;
 import polygon.PointInPolygon;
 
 /**
- todo
+ * Various functions that work with geohashes
  */
 public class GeoHashUtils {
 
@@ -32,13 +32,26 @@ public class GeoHashUtils {
 
 
     /**
-     * todo
+     * get the bounding box that envelopes a polygon.
+     *
+     * For example if the polygon is looks like this
+     *   .
+     * .   .
+     *   .
+     *
+     * Our bounding box would look like this
+     * ---------
+     * |   .   |
+     * |.     .|
+     * |   .   |
+     * ---------
+     *
+     *
      */
     public static double[] polyToBB(Coordinates[] polygon) {
         double minLat = Double.MAX_VALUE, minLon = minLat, maxLat = -minLat, maxLon = -minLat;
         for (Coordinates p : polygon) {
             minLat = Math.min(minLat, p.getLatitude());
-
             minLon = Math.min(minLon, p.getLongitude());
             maxLat = Math.max(maxLat, p.getLatitude());
             maxLon = Math.max(maxLon, p.getLongitude());

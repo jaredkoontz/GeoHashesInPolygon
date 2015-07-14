@@ -1,7 +1,9 @@
+package polygon;
+
 import coords.Coordinates;
-import geohash.LongestEnclosingGeoHash;
 import geohash.GeoHash;
 import geohash.GeoHashUtils;
+import geohash.LongestEnclosingGeoHash;
 
 import java.util.HashSet;
 
@@ -20,20 +22,16 @@ public class GeoHashesInPolygon {
     /**
      * todo
      */
-    public static HashSet<String> hashesInPoly(Coordinates[] polygon){
+    public static HashSet<String> hashesInPoly(Coordinates[] polygon) {
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(polygon).length();
         int precision = longestEnclosingHashLength + 2;
         return geohashesInPolygon(polygon, precision);
     }
 
     /**
-     *
      * @param polygon
      * @param precision
-     * @return
-     * todo change all of these integers into boolean logic
-     * 
-     * 
+     * @return todo change all of these integers into boolean logic
      */
     private static HashSet<String> hashesInPoly(Coordinates[] polygon, int precision) {
         double[] bounding = GeoHashUtils.polyToBB(polygon);
@@ -58,7 +56,6 @@ public class GeoHashesInPolygon {
 
         return allHashes;
     }
-
 
 
 }
