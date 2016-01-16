@@ -5,37 +5,29 @@ package coords;
  */
 public class Error {
 
-    private final double lat;
-    private final double lon;
+	private final LatLonPair latLonPair;
 
-    /**
-     * todo
-     */
-    public Error(double lat, double lon) {
-        this.lat = lat;
-        this.lon = lon;
-    }
+	/**
+	 * todo
+	 */
+	public Error(double lat, double lon) {
+		this.latLonPair = new LatLonPair(lat, lon);
+	}
 
-    /**
-     * todo
-     */
-    public String toString() {
-        return lat + " | " + lon;
-    }
 
-    /**
-     * todo
-     */
-    public double getLat() {
-        return lat;
-    }
+	/**
+	 * todo
+	 */
+	public double getLat() {
+		return latLonPair.getLat();
+	}
 
-    /**
-     * todo
-     */
-    public double getLon() {
-        return lon;
-    }
+	/**
+	 * todo
+	 */
+	public double getLon() {
+		return latLonPair.getLon();
+	}
 
 
 }
