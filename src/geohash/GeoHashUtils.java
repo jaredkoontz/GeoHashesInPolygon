@@ -78,7 +78,7 @@ public class GeoHashUtils {
 	public static int inside(Coordinates point, Coordinates[] polygon) {
 		int inside = 0;
 
-		inside += PointInPolygon.pip(new double[]{point.getLongitude(), point.getLatitude()}, polygon) ? 1 : 0;
+		inside += PointInPolygon.pointInPolygon(new double[]{point.getLongitude(), point.getLatitude()}, polygon) ? 1 : 0;
 
 		return inside % 2;
 	}
