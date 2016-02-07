@@ -7,6 +7,9 @@ import coords.Coordinates;
  */
 public class LongestEnclosingGeoHash {
 
+//todo - combine these methods into one. We iterate to encode and then iterate to find the longest. 
+// Two iterations -> could make it just one 
+
 	/**
 	 * todo
 	 */
