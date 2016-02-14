@@ -57,7 +57,7 @@ public class Coordinates {
 	}
 
 	/**
-	 * simple toString
+	 * simple toString 
 	 */
 	public String toString() {
 		return latLonPair.toString() + " | " + error;
