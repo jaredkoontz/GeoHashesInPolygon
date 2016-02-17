@@ -4,8 +4,7 @@
 *.build
 *.settings
 
-
-#jetbrains
+# jetbrains files
 .idea/*
 *.iml
 out/
