@@ -67,6 +67,10 @@ public class LongestEnclosingGeoHashTest {
 	@Test
 	public void test4Character() {
 	}
-
-
+	@Test
+	public void test5Character() {
+	}
+	@Test
+	public void test6Character() {
+	}
 }
