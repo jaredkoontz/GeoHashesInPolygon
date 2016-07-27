@@ -8,6 +8,7 @@
 .idea/*
 *.iml
 out/
+target/
 
 # Local dev files
 classes
@@ -16,3 +17,4 @@ build.properties
 
 # Mac OS File Attributes
 .DS_Store
+

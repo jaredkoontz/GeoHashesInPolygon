@@ -10,7 +10,7 @@ public class Error {
 	/**
 	 * todo
 	 */
-	public Error(double lat, double lon) {
+	Error(double lat, double lon) {
 		this.latLonPair = new LatLonPair(lat, lon);
 	}
 
