@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>edu.colostate.cs</groupId>
-    <artifactId>geohashes_in_any_shape</artifactId>
+    <artifactId>polygon_geohashes</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>geohashes_in_any_shape</name>
+    <name>polygon_geohashes</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>

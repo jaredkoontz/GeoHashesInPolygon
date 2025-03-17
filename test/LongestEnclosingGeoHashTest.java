@@ -2,7 +2,8 @@ import coords.Coordinates;
 import geohash.LongestEnclosingGeoHash;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 
 public class LongestEnclosingGeoHashTest {
 
@@ -16,7 +17,7 @@ public class LongestEnclosingGeoHashTest {
         };
 
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(us).length();
-        assertTrue(longestEnclosingHashLength == 0);
+        assertEquals(0, longestEnclosingHashLength);
     }
 
     @Test
@@ -28,8 +29,8 @@ public class LongestEnclosingGeoHashTest {
         };
 
         String longestEnclosingHash = LongestEnclosingGeoHash.longestEnclosingHash(wyomingCo);
-        assertTrue(longestEnclosingHash.length() == 1);
-        assertTrue(longestEnclosingHash.equals("9"));
+        assertEquals(1, longestEnclosingHash.length());
+        assertEquals("9", longestEnclosingHash);
     }
 
     @Test
@@ -42,8 +43,8 @@ public class LongestEnclosingGeoHashTest {
         };
 
         String longestEnclosingHash = LongestEnclosingGeoHash.longestEnclosingHash(noCo);
-        assertTrue(longestEnclosingHash.length() == 2);
-        assertTrue(longestEnclosingHash.equals("9x"));
+        assertEquals(2, longestEnclosingHash.length());
+        assertEquals("9x", longestEnclosingHash);
     }
 
 
@@ -60,19 +61,8 @@ public class LongestEnclosingGeoHashTest {
         };
 
         String longestEnclosingHash = LongestEnclosingGeoHash.longestEnclosingHash(weird);
-        assertTrue(longestEnclosingHash.length() == 3);
-        assertTrue(longestEnclosingHash.equals("9xj"));
+        assertEquals(3, longestEnclosingHash.length());
+        assertEquals("9xj", longestEnclosingHash);
     }
 
-    @Test
-    public void test4Character() {
-    }
-
-    @Test
-    public void test5Character() {
-    }
-
-    @Test
-    public void test6Character() {
-    }
 }
