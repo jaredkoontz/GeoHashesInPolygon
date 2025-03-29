@@ -7,9 +7,6 @@ import geohash.LongestEnclosingGeoHash;
 
 import java.util.HashSet;
 
-/**
- * todo
- */
 public class GeoHashesInPolygon {
 
 
@@ -23,10 +20,6 @@ public class GeoHashesInPolygon {
         return geohashesInPolygon(polygon, precision);
     }
 
-    /**
-     * @param polygon
-     * @param precision
-     */
     private static HashSet<String> hashesInPoly(Coordinates[] polygon, int precision) {
         double[] bounding = GeoHashUtils.polyToBB(polygon);
         HashSet<String> allHashes = new HashSet<>();

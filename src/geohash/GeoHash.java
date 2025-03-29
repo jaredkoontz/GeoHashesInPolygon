@@ -5,10 +5,10 @@ import coords.Coordinates;
 import java.util.HashMap;
 
 /**
- * This class provides an implementation of the GeoHash (http://www.geohash.org)
- * algorithm.
- * <p/>
- * See http://en.wikipedia.org/wiki/Geohash for implementation details.
+ * This class provides an implementation of the GeoHash (<a href="http://www.geohash.org">...</a>)
+ * algorith<a href="m.
+ * ">* <p/>
+ * See http://en.wikipedi</a>a.org/wiki/Geohash for implementation details.
  * <p/>
  * created by malensek
  * edited by koontz
@@ -32,10 +32,10 @@ public class GeoHash {
      */
     public final static HashMap<Character, Integer> charLookupTable =
             new HashMap<>();
-    public static int DEFAULT_PRECISION = 12;
+    public static final int DEFAULT_PRECISION = 12;
 
-    /**
-     * Initialize HashMap for character to integer lookups.
+    /*
+      Initialize HashMap for character to integer lookups.
      */
     static {
         for (int i = 0; i < charMap.length; ++i) {
@@ -89,7 +89,7 @@ public class GeoHash {
         value[0] = longitude;
         value[1] = latitude;
 
-        String hash = "";
+        StringBuilder hash = new StringBuilder();
 
         for (int p = 0; p < precision; ++p) {
 
@@ -109,10 +109,10 @@ public class GeoHash {
                 }
             }
 
-            hash += charMap[charBits];
+            hash.append(charMap[charBits]);
         }
 
-        return hash;
+        return hash.toString();
     }
 
     /**
