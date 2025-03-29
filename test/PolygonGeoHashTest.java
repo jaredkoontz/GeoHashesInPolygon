@@ -5,7 +5,7 @@ import polygon.GeoHashesInPolygon;
 
 import java.util.Set;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 
 public class PolygonGeoHashTest {
@@ -21,7 +21,7 @@ public class PolygonGeoHashTest {
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(wyomingCo).length();
         int precision = longestEnclosingHashLength + 2;
         Set<String> hashes = GeoHashesInPolygon.geohashesInPolygon(wyomingCo, precision);
-        assertTrue(hashes.size() == 15);
+        assertEquals(15, hashes.size());
     }
 
 
@@ -37,7 +37,7 @@ public class PolygonGeoHashTest {
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(us).length();
         int precision = longestEnclosingHashLength + 2;
         Set<String> hashes = GeoHashesInPolygon.geohashesInPolygon(us, precision);
-        assertTrue(hashes.size() == 12);
+        assertEquals(12, hashes.size());
     }
 
 
@@ -53,7 +53,7 @@ public class PolygonGeoHashTest {
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(noCo).length();
         int precision = longestEnclosingHashLength + 2;
         Set<String> hashes = GeoHashesInPolygon.geohashesInPolygon(noCo, precision);
-        assertTrue(hashes.size() == 48);
+        assertEquals(48, hashes.size());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class PolygonGeoHashTest {
         int longestEnclosingHashLength = LongestEnclosingGeoHash.longestEnclosingHash(weird).length();
         int precision = longestEnclosingHashLength + 2;
         Set<String> hashes = GeoHashesInPolygon.geohashesInPolygon(weird, precision);
-        assertTrue(hashes.size() == 92);
+        assertEquals(92, hashes.size());
     }
 
 
